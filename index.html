@@ -1,1 +1,161 @@
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPHS DS 44 - AFRY</title>
+    <style>
+        :root {
+            --afry-green: #00543D;
+            --afry-cream: #F5F2ED;
+            --afry-white: #FFFFFF;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--afry-cream);
+            color: var(--afry-green);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--afry-green);
+            color: var(--afry-white);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            height: 40px;
+            margin-left: 20px;
+        }
+        nav {
+            display: flex;
+            background: var(--afry-green);
+            padding: 10px;
+            overflow-x: auto;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav button {
+            background: none;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: var(--afry-white);
+            padding: 8px 16px;
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        nav button:hover {
+            background: var(--afry-white);
+            color: var(--afry-green);
+        }
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: 20px auto;
+        }
+        .section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .section.active {
+            display: block;
+        }
+        .card {
+            background: var(--afry-white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        h1 { margin: 0; font-size: 24px; }
+        h2 { border-bottom: 2px solid var(--afry-green); padding-bottom: 10px; }
+        ul { line-height: 1.6; }
+        li { margin-bottom: 10px; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div>
+                <h1>CPHS según DS 44</h1>
+                <small>Manual Interactivo AFRY</small>
+            </div>
+        </div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/AFRY_logo.svg" alt="AFRY" class="logo">
+    </header>
+    <nav>
+        <button onclick="show('inicio')">Inicio</button>
+        <button onclick="show('definicion')">¿Qué es?</button>
+        <button onclick="show('composicion')">Composición</button>
+        <button onclick="show('funciones')">Funciones</button>
+        <button onclick="show('ds44')">Novedades DS 44</button>
+    </nav>
+    <div class="container">
+        <div id="inicio" class="section active">
+            <div class="card">
+                <h2>Bienvenido</h2>
+                <p>Esta plataforma visualiza los requerimientos del Comité Paritario de Higiene y Seguridad bajo la nueva normativa del DS 44.</p>
+                <p>Utiliza el menú superior para navegar por las distintas secciones.</p>
+            </div>
+        </div>
+        <div id="definicion" class="section">
+            <div class="card">
+                <h2>¿Qué es el CPHS?</h2>
+                <p>Es un organismo técnico de participación conjunta entre la empresa y los trabajadores, obligatorio en cada centro de trabajo con más de 25 personas.</p>
+                <p>Su función es vigilar y promover la seguridad y salud de los trabajadores.</p>
+            </div>
+        </div>
+        <div id="composicion" class="section">
+            <div class="card">
+                <h2>Composición Mixta</h2>
+                <ul>
+                    <li><strong>3 Representantes del Empleador:</strong> Designados directamente por la gerencia.</li>
+                    <li><strong>3 Representantes de los Trabajadores:</strong> Elegidos mediante votación secreta.</li>
+                    <li>Cada titular cuenta con su respectivo suplente.</li>
+                </ul>
+            </div>
+        </div>
+        <div id="funciones" class="section">
+            <div class="card">
+                <h2>Funciones Principales</h2>
+                <ul>
+                    <li>Asesorar e instruir a los trabajadores sobre el correcto uso de EPP.</li>
+                    <li>Vigilar el cumplimiento de las medidas de prevención.</li>
+                    <li>Investigar las causas de accidentes y enfermedades profesionales.</li>
+                    <li>Decidir si un accidente se debió a una negligencia inexcusable.</li>
+                </ul>
+            </div>
+        </div>
+        <div id="ds44" class="section">
+            <div class="card">
+                <h2>Cambios con el DS 44</h2>
+                <p>El DS 44 moderniza el funcionamiento de los comités:</p>
+                <ul>
+                    <li>Digitalización de procesos y actas.</li>
+                    <li>Mayor énfasis en la gestión de riesgos psicosociales (Ley Karin).</li>
+                    <li>Nuevos protocolos de investigación de incidentes.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        function show(id) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+</html>
